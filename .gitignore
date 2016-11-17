@@ -1,0 +1,33 @@
+# Back End
+Back-End/node_modules
+Back-End/.env
+Back-End/INFO.txt
+
+# compiled output
+Front-End/dist
+Front-End/tmp
+
+# dependencies
+Front-End/node_modules
+Front-End/bower_components
+
+# IDEs and editors
+Front-End/.idea
+Front-End/.vscode
+Front-End/.project
+Front-End/.classpath
+Front-End/*.launch
+Front-End/.settings/
+
+# misc
+Front-End/.sass-cache
+Front-End/connect.lock
+Front-End/coverage/*
+Front-End/libpeerconnection.log
+Front-End/npm-debug.log
+Front-End/testem.log
+Front-End/typings
+
+#System Files
+Front-End/.DS_Store
+Front-End/Thumbs.db
