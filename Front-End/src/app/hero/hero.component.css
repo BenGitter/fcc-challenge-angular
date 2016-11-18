@@ -1,0 +1,40 @@
+.hero-image{
+  max-height: 800px;
+  height: 100vh;
+  background-image: url("assets/images/hero.png"); 
+  background-size: cover;
+  background-position: center;
+  margin-top: -120px;
+}
+
+.slogan{
+  margin-top: 350px;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+  text-shadow: .5px .5px 1px rgba(255,198,82,0.5);
+}
+
+.action-button .btn{
+  background-color: rgb(241,99,95);
+  border: none;
+  box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.3);
+  padding: 15px 30px;
+  font-weight: bolder;
+  color: white;
+  margin-top: 30px;
+  font-size: 23px;
+  transition: box-shadow 1s
+}
+.action-button .btn:hover{
+  box-shadow: none;
+  background-color: rgb(241,99,95);
+  box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.3);
+  color: white;
+}
+
+@media (max-width: 400px) {
+  .slogan{
+    margin-top: 170px;
+  }
+}

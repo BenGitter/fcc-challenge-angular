@@ -15,8 +15,8 @@ exports.connect = function(url, done){
 }
 
 exports.findUser = function(userId, callback){
-  collection = database.collection("users");
-  collection.findOne({
+  var users = database.collection("users");
+  users.findOne({
     userId: userId
   }, function(err, doc){
     if(err) callback(err);
@@ -26,8 +26,8 @@ exports.findUser = function(userId, callback){
 }
 
 exports.addUser = function(user, callback){
-  collection = database.collection("users");
-  collection.insertOne({
+  var users = database.collection("users");
+  users.insertOne({
     userId: user.id,
     isRunning: false,
   }, function(err, doc){
@@ -35,4 +35,29 @@ exports.addUser = function(user, callback){
     
     return callback(null, doc);
   })
+}
+
+exports.getStats = function(userId, callback){
+  var items = database.collection("items");
+
+  items.find({
+    userId: parseInt(userId)
+  }).toArray(function(err, docs){
+    if(err) return callback(err);
+
+    return callback(null, docs);
+  });
+}
+
+exports.updateUser = function(userId, isRunning, callback){
+  var users = database.collection("users");
+  users.update({
+    userId: userId
+  }, {
+    isRunning: isRunning
+  }, function(err, doc){
+    if(err) return callback(err);
+
+    callback(null, doc);
+  });
 }

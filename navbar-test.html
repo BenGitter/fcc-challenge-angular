@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body{
+      background-image: url("Front-End/src/assets/images/hero.png");
+      background-size: cover;
+    }
+    .navbar{
+      background-color: rgba(200,200,200,0.2);
+    }
+
+    .navbar img{
+      float: left;
+      width: 70px;
+      margin: 10px;
+    }
+    .navbar h3{
+      float: left;
+      margin: 30px 15px;
+      color: rgb(238,62,58);
+      font-weight: bold;
+    }
+    .navbar button{
+      float: right;
+      background-color: rgb(255,213,129);
+      border: none;
+      box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.3);
+      padding-left: 20px;
+      padding-right: 20px;
+      font-weight: bolder;
+      color: rgb(127,96,0);
+      margin-top: 30px;
+      margin-right: 20px;
+      font-size: 15px;
+    }
+    .navbar button:hover{
+      box-shadow: none;
+      background-color: rgb(255,213,129);
+      box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.3);
+      color: rgb(127,96,0);
+    }
+
+    @media (max-width: 400px) {
+      .navbar h3{
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 navbar">
+        <img src="Front-End/src/assets/images/icon.png" alt="icon timetracker">
+        <h3>TimeTracker</h3>
+        <button type="button" class="btn btn-default">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

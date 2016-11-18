@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+/* Colors : 
+
+  rgb(255,213,129)      login button
+  rgb(241,99,95)        action button 
+  rgb(238,62,58)        title/header color 
+
+  rgba(241,99,95,0.2)   first part bg color 
+  rgba(255,198,82,0.3)  yellow part bg color
+
+  rgb(255,198,82)       yellow circle
+  rgb(241,99,95)        red circle
+
+*/
+
+.navbar{
+  z-index: 20;
+}

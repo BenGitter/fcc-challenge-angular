@@ -9,18 +9,9 @@ require("dotenv").config();
 
 // Main route
 router.get('/', function (req, res) {
-  var html = "<ul>\
-    <li><a href='/auth/github'>GitHub</a></li>\
-    <li><a href='/logout'>logout</a></li>\
-  </ul>";
-
-  // Dump the user for debugging
-  if (req.isAuthenticated()) {
-    html += "<p>authenticated as user:</p>"
-    html += "<pre>" + JSON.stringify(req.user, null, 4) + "</pre>";
-  }
-
-  res.send(html);
+  res.json({
+    "msg": "This is the main route"
+  })
 });
 
 // Start the GitHub Login process
@@ -30,7 +21,7 @@ router.get('/auth/github', passport.authenticate('github'));
 router.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
 
-    // Check if user is already added
+    // Check if user is already in db
     db.findUser(req.user._json.id, function(err, doc){
       if(err) return err;
 
@@ -40,13 +31,15 @@ router.get('/auth/github/callback', passport.authenticate('github', { failureRed
           if(err) return err;
 
           console.log("Following document is added", JSON.stringify(doc));
+
+          res.redirect('/api');
         });
       }else{
         console.log("User already exists");
+        req.session.passport.user.isRunning = doc.isRunning;
+        res.redirect('/api');
       }
     });
-
-    res.redirect('/');
   }
 );
 
@@ -54,7 +47,7 @@ router.get('/auth/github/callback', passport.authenticate('github', { failureRed
 router.get('/logout', function(req, res){
   console.log('logging out');
   req.logout();
-  res.redirect('/');
+  res.redirect('/api');
 });
 
 // Protected route

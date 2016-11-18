@@ -15,7 +15,15 @@ passport.use(new GithubStrategy({
 passport.serializeUser(function(user, done) {
   // placeholder for custom user serialization
   // null is for errors
-  done(null, user);
+
+  var _user = {
+    "userId": user._json.id,
+    "name": user._json.name,
+    "username": user.username,
+    "avatar_url": user._json.avatar_url,
+    "isRunning": "false"
+  }
+  done(null, _user);
 });
 
 passport.deserializeUser(function(user, done) {
