@@ -19,6 +19,13 @@ app.use(session({secret: "super-secret-key"}));
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Allow CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 
 // Router
 app.use("/", routes);
