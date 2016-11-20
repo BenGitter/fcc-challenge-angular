@@ -9,7 +9,7 @@
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "upload": "cd dist & surge --domain fcc-challenge-angular.surge.sh & cd .."
+    "upload": "cd dist & ng build & surge --domain fcc-challenge-angular.surge.sh & cd .."
   },
   "private": true,
   "dependencies": {
