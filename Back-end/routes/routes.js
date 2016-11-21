@@ -7,6 +7,8 @@ var api = require("./api");
 var db = require("../db");
 require("dotenv").config();
 
+
+
 // Main route
 router.get('/', function (req, res) {
   res.json({

@@ -10,6 +10,8 @@ router.get('/', function(req, res) {
     "loggedIn": false
   }
 
+  console.log("Got Request");
+
   if (req.isAuthenticated()) {
     response = {
       "loggedIn": true,

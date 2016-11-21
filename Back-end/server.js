@@ -4,7 +4,7 @@ var passport = require('passport');
 var session = require('express-session');
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
-
+var cors = require("cors");
 var routes = require("./routes/routes");
 var db = require("./db");
 var port = process.env.PORT || 30000;
@@ -12,6 +12,7 @@ var port = process.env.PORT || 30000;
 var app = express();
 
 // Initialize session and passport
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
