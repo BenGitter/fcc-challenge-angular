@@ -7,7 +7,7 @@ var cookieParser = require("cookie-parser");
 var cors = require("cors");
 var routes = require("./routes/routes");
 var db = require("./db");
-var port = process.env.PORT || 30000;
+var port = process.env.PORT || 8080;
 
 var app = express();
 
@@ -19,6 +19,10 @@ app.use(cookieParser());
 app.use(session({secret: "super-secret-key"}));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
 
 // Allow CORS
 app.use(function(req, res, next) {

@@ -16,6 +16,10 @@ router.get('/', function (req, res) {
   })
 });
 
+router.get('/close', function (req, res) {
+  res.render("close.html", {data: req.user});
+});
+
 // Start the GitHub Login process
 router.get('/auth/github', passport.authenticate('github'));
 
@@ -34,12 +38,12 @@ router.get('/auth/github/callback', passport.authenticate('github', { failureRed
 
           console.log("Following document is added", JSON.stringify(doc));
 
-          res.redirect('/api');
+          res.redirect('/close');
         });
       }else{
         console.log("User already exists");
         req.session.passport.user.isRunning = doc.isRunning;
-        res.redirect('/api');
+        res.redirect('/close');
       }
     });
   }

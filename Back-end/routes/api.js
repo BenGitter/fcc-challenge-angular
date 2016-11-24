@@ -18,7 +18,8 @@ router.get('/', function(req, res) {
       "name": req.user.name,
       "username": req.user.username,
       "avatar": req.user.avatar_url,
-      "isRunning": req.user.isRunning
+      "isRunning": req.user.isRunning,
+      "userId": req.user.userId
     }
   }
 
@@ -28,7 +29,7 @@ router.get('/', function(req, res) {
 // Login route: will auth redirect to main route if user is already authenticated
 router.get("/login", function(req, res){
   if(req.isAuthenticated()){
-    res.redirect("/api");
+    res.redirect("/close");
   }else{
     res.redirect("/auth/github");
   }
@@ -53,15 +54,14 @@ router.post("/stat", function(req, res){
 });
 
 // Stats route:
-router.get("/stats", function(req, res){
-  if(req.isAuthenticated()){
-    db.getStats(req.user.userId, function(err, docs){
-      res.json(docs);
-    });
+router.get("/stats/:id", function(req, res){
+  db.getStats(req.params.id, function(err, docs){
+    if(err){
+      res.json({error: "Some error occured"});
+    }
 
-  }else{
-    res.json({"msg": "You are not logged in"});
-  }
+    res.json(docs);
+  });
 });
 
 // Change isRunning state
