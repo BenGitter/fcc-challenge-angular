@@ -11,6 +11,7 @@ import { InfoComponent } from './info/info.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { TimerComponent } from './timer/timer.component';
+import { TimerService } from './timer.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ TimerService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

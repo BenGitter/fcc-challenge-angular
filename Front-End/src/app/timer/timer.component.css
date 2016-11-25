@@ -1,0 +1,29 @@
+.container-fluid{
+  background-color: rgba(241,99,95,0.3);
+  min-height: calc(100vh - 95px);
+  margin-top: -20px;
+}
+
+.timer-button{
+  width: 250px;
+  height: 250px;
+  border-radius: 200px;
+  background-color: rgb(241,99,95);
+  margin: auto;
+  margin-top: 40px;
+  box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.timer-button .glyphicon{
+  width: 100%;
+  text-align: center;
+  font-size: 120px;
+  color: white;
+  padding-top: 60px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width : 768px) {
+
+}

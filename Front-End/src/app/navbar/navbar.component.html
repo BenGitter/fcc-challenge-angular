@@ -1,11 +1,10 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12 navbar">
-      <img src="assets/images/icon.png" alt="icon timetracker">
-      <h3>TimeTracker</h3>
-      <a routerLink="/timer" routerLinkActive="active">
-        <button type="button" class="btn btn-default">Login</button>
-      </a>
+    <div class="row">
+      <div class="col-xs-12 navbar">
+        <img class="icon" src="assets/images/icon.png" alt="icon timetracker">
+        <h3>TimeTracker</h3>
+        <button *ngIf="!timerService.isLoggedIn" (click)="route()" type="button" class="btn btn-default">Login</button>
+        <img class="avatar" *ngIf="timerService.isLoggedIn" src="{{this.timerService.user.avatar_url}}" alt="X">
+      </div>
     </div>
-  </div>
 </div>

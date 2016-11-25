@@ -3,7 +3,7 @@
   box-shadow: 1px 0px 2px 1px rgba(0,0,0,0.5);
 }
 
-.navbar img{
+.navbar .icon{
   float: left;
   width: 70px;
   margin: 10px;
@@ -35,8 +35,14 @@
   color: rgb(127,96,0);
 }
 
+.navbar .avatar{
+  float: right;
+  height: 50px;
+  margin: 20px;
+}
+
 @media (max-width: 400px) {
-  .navbar h3{
+  .navbar .icon{
     display: none;
   }
 }
